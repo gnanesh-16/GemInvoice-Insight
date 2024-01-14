@@ -1,11 +1,9 @@
 from dotenv import load_dotenv
-load_dotenv() ## load all the environment variables from .env
-
+load_dotenv() 
 import streamlit as st
 import os
 from PIL import Image
 import google.generativeai as genai
-
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 ## Load Gemini pro vision model
@@ -22,7 +20,7 @@ def input_image_details(uploaded_file):
 
         image_parts = [
             {
-                "mime_type": uploaded_file.type,  # Get the mime type of the uploaded file
+                "mime_type": uploaded_file.type,  
                 "data": bytes_data
             }
         ]
@@ -30,8 +28,6 @@ def input_image_details(uploaded_file):
     else:
         raise FileNotFoundError("No file uploaded")
     
-
-##initialize our streamlit app
 
 st.set_page_config(page_title="MULTI LANGUAGE INVOICE Extractorr")
 
